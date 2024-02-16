@@ -5,30 +5,30 @@ import * as images from '../assets';
 type ImageKey = keyof typeof images;
 
 const toastConfig = {
-  success: ({ text2, text1 }: any) => {
-    const imageKey = text2 as ImageKey;
+  successGray: ({ text1, text2 }: any) => {
+    const imageKey = text1 as ImageKey;
     const imageSource = images[imageKey];
     return (
       <View style={styles.sBody}>
-        {text2 && <Image source={imageSource} style={styles.img} />}
-        <Text style={styles.sText}>{text1}</Text>
+        {text1 && <Image source={imageSource} style={styles.img} />}
+        <Text style={styles.sText}>{text2}</Text>
       </View>
     );
   },
-  success2: ({ text2, text1 }: any) => {
-    const imageKey = text2 as ImageKey;
+  successWhite: ({ text1, text2 }: any) => {
+    const imageKey = text1 as ImageKey;
     const imageSource = images[imageKey];
     return (
       <View style={[styles.s2Body, styles.shadows]}>
-        {text2 && <Image source={imageSource} style={styles.img} />}
-        <Text style={styles.s2Text}>{text1}</Text>
+        {text1 && <Image source={imageSource} style={styles.img} />}
+        <Text style={styles.s2Text}>{text2}</Text>
       </View>
     );
   },
-  success3: ({ text1 }: any) => {
+  successYellow: ({ text2 }: any) => {
     return (
       <View style={[styles.s3Body]}>
-        <Text style={styles.s3Text}>{text1}</Text>
+        <Text style={styles.s3Text}>{text2}</Text>
       </View>
     );
   },
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   s3Body: {
     height: 50,
     width: '67%',
-    backgroundColor: '#bbb',
+    backgroundColor: 'yellow',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   s3Text: {
     fontSize: 16,
-    color: 'white',
+    color: 'black',
     fontWeight: '700',
     lineHeight: 50,
   },

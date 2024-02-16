@@ -6,11 +6,11 @@ import {
   View,
   SafeAreaView,
 } from 'react-native';
-import Toast from 'react-native-toast-message';
 import { Shadow } from 'react-native-shadow-2';
 import RNPickerSelect from 'react-native-picker-select';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { ShowToast } from '../Sub/ToastHook';
 
 export const Test2 = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -34,48 +34,44 @@ export const Test2 = () => {
     hideDatePicker();
   };
 
-  const showToast = () => {
-    Toast.show({
-      type: 'success',
-      text1: '정보를 올바르게 입력해주세요',
-      text2: 'menu',
-      position: 'bottom',
-      bottomOffset: 100,
-    });
-  };
-
-  const showToast2 = () => {
-    Toast.show({
-      type: 'success2',
-      text1: '정보를 올바르게 입력해주세요',
-      text2: 'schedule',
-      position: 'bottom',
-      bottomOffset: 100,
-    });
-  };
-
-  const showToast3 = () => {
-    Toast.show({
-      type: 'success3',
-      text1: '정보를 올바르게 입력해주세요',
-      position: 'top',
-      topOffset: 100,
-      visibilityTime: 1000,
-    });
-  };
-
   return (
     <View style={stlyes.back}>
       <SafeAreaView>
         <Text style={stlyes.h1}>Toast!</Text>
-        <TouchableOpacity onPress={showToast} style={stlyes.btn}>
-          <Text>click - calen</Text>
+        <TouchableOpacity
+          onPress={() =>
+            ShowToast({
+              type: 'successGray',
+              icon: 'inventory',
+              text: '정보를 올바르게 입력해 주세요.',
+            })
+          }
+          style={stlyes.btn}
+        >
+          <Text>successGray</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={showToast2} style={stlyes.btn}>
-          <Text>click - inven</Text>
+        <TouchableOpacity
+          onPress={() =>
+            ShowToast({
+              type: 'successWhite',
+              icon: 'menu',
+              text: '정보를 올바르게 입력해 주세요.',
+            })
+          }
+          style={stlyes.btn}
+        >
+          <Text>successWhite</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={showToast3} style={stlyes.btn}>
-          <Text>click - no</Text>
+        <TouchableOpacity
+          onPress={() =>
+            ShowToast({
+              type: 'successYellow',
+              text: '정보를 올바르게 입력해 주세요.',
+            })
+          }
+          style={stlyes.btn}
+        >
+          <Text>successYellow</Text>
         </TouchableOpacity>
         <Text style={stlyes.h1}>Shadow</Text>
         <View style={stlyes.shadowbox}>
