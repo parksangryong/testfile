@@ -49,7 +49,7 @@ export const Test6 = () => {
 
   const buttonColor = colorValue.interpolate({
     inputRange: [0, 1],
-    outputRange: ['white', '#eeeeee'],
+    outputRange: ['white', '#f2f3f5'],
   });
 
   const animateButtonIn = () => {
