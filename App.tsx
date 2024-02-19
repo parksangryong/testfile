@@ -2,15 +2,11 @@ import React, { useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Test1 } from './src/Screen/Test1';
-import { Test2 } from './src/Screen/Test2';
-import { Test3 } from './src/Screen/Test3';
-import { Test4 } from './src/Screen/Test4';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Toast from 'react-native-toast-message';
-import { Test5 } from './src/Screen/Test5';
-import { Test6 } from './src/Screen/Test6';
 import toastConfig from './src/Sub/toast';
+
+import { Test1, Test2, Test3, Test4, Test5, Test6 } from './src/Screen';
 
 const Tab = createBottomTabNavigator();
 

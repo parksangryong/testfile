@@ -10,9 +10,9 @@ import { Shadow } from 'react-native-shadow-2';
 import RNPickerSelect from 'react-native-picker-select';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { ShowToast } from '../Sub/ToastHook';
+import useCustomToast from '../hooks/ToastHook';
 
-export const Test2 = () => {
+const Test2 = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -34,14 +34,16 @@ export const Test2 = () => {
     hideDatePicker();
   };
 
+  const { successGrayToast, successWhiteToast, successYellowToast } =
+    useCustomToast();
+
   return (
     <View style={stlyes.back}>
       <SafeAreaView>
         <Text style={stlyes.h1}>Toast!</Text>
         <TouchableOpacity
           onPress={() =>
-            ShowToast({
-              type: 'successGray',
+            successGrayToast({
               icon: 'inventory',
               text: '정보를 올바르게 입력해 주세요.',
             })
@@ -52,8 +54,7 @@ export const Test2 = () => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
-            ShowToast({
-              type: 'successWhite',
+            successWhiteToast({
               icon: 'menu',
               text: '정보를 올바르게 입력해 주세요.',
             })
@@ -64,8 +65,7 @@ export const Test2 = () => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
-            ShowToast({
-              type: 'successYellow',
+            successYellowToast({
               text: '정보를 올바르게 입력해 주세요.',
             })
           }
@@ -183,3 +183,5 @@ const stlyes = StyleSheet.create({
     marginTop: 15,
   },
 });
+
+export default Test2;

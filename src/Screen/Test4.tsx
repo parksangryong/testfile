@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, Image, View, SafeAreaView } from 'react-native';
 import SignatureView from 'react-native-signature-canvas';
 
-export const Test4 = () => {
+const Test4 = () => {
   const [baseimg, setBaseImg] = useState('');
 
   const handleSignature = (signature: string) => {
@@ -67,3 +67,5 @@ const stlyes = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default Test4;

@@ -4,7 +4,7 @@ import { clickCount } from '../Sub/zustand';
 import moment from 'moment';
 import { findIndex } from 'lodash';
 
-export const Test3 = () => {
+const Test3 = () => {
   const { count2, plusCount2, minusCount2 } = clickCount();
   const [date, setDate] = useState(moment().format('MMMM Do YYYY, h:mm a'));
 
@@ -80,3 +80,4 @@ const stlyes = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
+export default Test3;

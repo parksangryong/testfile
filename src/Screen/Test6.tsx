@@ -14,7 +14,7 @@ import {
 } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-export const Test6 = () => {
+const Test6 = () => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -213,3 +213,5 @@ const styles = StyleSheet.create({
   h1: { fontSize: 30 },
   h3: { fontSize: 20, color: 'black' },
 });
+
+export default Test6;

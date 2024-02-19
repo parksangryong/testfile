@@ -12,7 +12,7 @@ import Items from './Items';
 import { useHomeQuery } from '../Sub/query';
 import { clickCount, useApiCount } from '../Sub/zustand';
 
-export const Test1 = () => {
+const Test1 = () => {
   const { count } = useApiCount();
   const { count2, plusCount2, minusCount2 } = clickCount();
 
@@ -118,3 +118,5 @@ const stlyes = StyleSheet.create({
     color: 'blue',
   },
 });
+
+export default Test1;

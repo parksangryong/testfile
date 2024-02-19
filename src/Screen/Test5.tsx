@@ -19,7 +19,7 @@ export const storages = new MMKV({
   encryptionKey: 'hello?',
 });
 
-export const Test5 = () => {
+const Test5 = () => {
   const [inputset, setInputset] = useState('');
   const [key, setKey] = useState('');
   const [inputget, setInputget] = useState('');
@@ -174,3 +174,5 @@ const stlyes = StyleSheet.create({
     paddingHorizontal: 20,
   },
 });
+
+export default Test5;
