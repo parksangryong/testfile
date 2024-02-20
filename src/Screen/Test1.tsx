@@ -16,7 +16,7 @@ const Test1 = () => {
   const { count } = useApiCount();
   const { count2, plusCount2, minusCount2 } = clickCount();
 
-  const { status, data: rqData } = useHomeQuery();
+  const { status, data: rqData, refetch } = useHomeQuery();
 
   if (status === 'loading') {
     return (
@@ -47,6 +47,9 @@ const Test1 = () => {
         <View style={stlyes.body}>
           <Text style={stlyes.error}>Query Error</Text>
         </View>
+        <TouchableOpacity onPress={() => refetch()} style={stlyes.re}>
+          <Text>restart</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     );
   }
@@ -116,6 +119,10 @@ const stlyes = StyleSheet.create({
   },
   minus: {
     color: 'blue',
+  },
+  re: {
+    marginRight: 20,
+    alignItems: 'flex-end',
   },
 });
 

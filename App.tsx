@@ -62,13 +62,13 @@ const TopTab = () => {
         },
       }}
     >
-      <Top.Screen name="Top1" children={Top1} />
-      <Top.Screen name="Top2" children={Top2} />
-      <Top.Screen name="Top3" children={Top3} />
-      <Top.Screen name="Top4" children={Top4} />
-      <Top.Screen name="Top5" children={Top5} />
-      <Top.Screen name="Top6" children={Top6} />
-      <Top.Screen name="Top7" children={Top7} />
+      <Top.Screen name="Top1" component={Top1} />
+      <Top.Screen name="Top2" component={Top2} />
+      <Top.Screen name="Top3" component={Top3} />
+      <Top.Screen name="Top4" component={Top4} />
+      <Top.Screen name="Top5" component={Top5} />
+      <Top.Screen name="Top6" component={Top6} />
+      <Top.Screen name="Top7" component={Top7} />
     </Top.Navigator>
   );
 };
@@ -97,11 +97,7 @@ const App = () => {
             tabBarActiveBackgroundColor: '#ddd',
           }}
         >
-          <Tab.Screen
-            name="screen1"
-            component={Test1}
-            options={{ unmountOnBlur: true }}
-          />
+          <Tab.Screen name="screen1" component={Test1} />
           <Tab.Screen name="screen2" component={Test2} />
           <Tab.Screen name="screen3" component={Test3} />
           <Tab.Screen name="screen4" component={Test4} />
