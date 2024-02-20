@@ -66,7 +66,7 @@ const Test2 = () => {
         <TouchableOpacity
           onPress={() =>
             successYellowToast({
-              text: '정보를 올바르게 입력해 주세요.',
+              text: '정보',
             })
           }
           style={stlyes.btn}

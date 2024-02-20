@@ -4,7 +4,7 @@ import Toast from 'react-native-toast-message';
 type ToastType = {
   type?: string;
   icon?: string;
-  text: string;
+  text?: string;
 };
 
 const useCustomToast = () => {

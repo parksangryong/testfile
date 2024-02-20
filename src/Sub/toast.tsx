@@ -1,6 +1,8 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import * as images from '../assets';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faTimesRectangle } from '@fortawesome/free-regular-svg-icons';
 
 type ImageKey = keyof typeof images;
 
@@ -25,10 +27,10 @@ const toastConfig = {
       </View>
     );
   },
-  successYellow: ({ text2 }: any) => {
+  successYellow: () => {
     return (
       <View style={[styles.s3Body]}>
-        <Text style={styles.s3Text}>{text2}</Text>
+        <FontAwesomeIcon icon={faTimesRectangle} size={50} color="red" />
       </View>
     );
   },
@@ -88,22 +90,20 @@ const styles = StyleSheet.create({
     elevation: 20,
   },
   s3Body: {
-    height: 50,
-    width: '67%',
+    height: 100,
+    width: 100,
     backgroundColor: 'yellow',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    borderLeftWidth: 18,
-    borderRightWidth: 18,
-    borderLeftColor: '#FFC55B',
-    borderRightColor: '#FFC55B',
+    borderRadius: 100,
+    borderWidth: 5,
+    borderColor: 'red',
   },
   s3Text: {
-    fontSize: 16,
+    fontSize: 15,
     color: 'black',
     fontWeight: '700',
-    lineHeight: 50,
   },
 });
 
