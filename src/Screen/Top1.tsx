@@ -20,7 +20,7 @@ const Top1 = () => {
   return (
     <View style={styles.container}>
       <View style={styles.ninja} />
-      <Text>zustand : {count2}</Text>
+      <Text>zustandA : {count2}</Text>
       <View style={styles.box}>
         <TouchableOpacity onPress={minusCount2}>
           <Text>- 1</Text>
@@ -36,7 +36,7 @@ const Top1 = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.ninja} />
-      <Text>zustand : {count3}</Text>
+      <Text>zustandB : {count3}</Text>
       <View style={styles.box}>
         <TouchableOpacity onPress={minusCount3}>
           <Text>- 1</Text>
@@ -52,7 +52,7 @@ const Top1 = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.ninja} />
-      <Text>zustand : {count4}</Text>
+      <Text>zustandC : {count4}</Text>
       <View style={styles.box}>
         <TouchableOpacity onPress={minusCount4}>
           <Text>- 1</Text>
@@ -68,7 +68,7 @@ const Top1 = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.ninja} />
-      <Text>zustand : {count5}</Text>
+      <Text>zustandD : {count5}</Text>
       <View style={styles.box}>
         <TouchableOpacity onPress={minusCount5}>
           <Text>- 1</Text>
