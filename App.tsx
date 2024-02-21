@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 //package
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// import { AppVersionCheck } from './src/Sub/DeepLink';
 
 //hooks
 import Toast from 'react-native-toast-message';
@@ -37,6 +38,7 @@ import {
   faComputerMouse,
   faFeatherPointed,
 } from '@fortawesome/free-solid-svg-icons';
+import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const Top = createMaterialTopTabNavigator();
@@ -60,6 +62,7 @@ const TopTab = () => {
         tabBarIndicatorStyle: {
           backgroundColor: 'black',
         },
+        swipeEnabled: false,
       }}
     >
       <Top.Screen name="Top1" component={Top1} />
@@ -88,7 +91,7 @@ const App = () => {
             tabBarHideOnKeyboard: true,
             headerShown: false,
             tabBarStyle: {
-              paddingBottom: 25,
+              paddingBottom: Platform.OS === 'ios' ? 25 : 0,
             },
             tabBarShowLabel: false,
             tabBarIcon: () => {
