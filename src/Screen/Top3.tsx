@@ -14,7 +14,7 @@ const Top3 = () => {
     <>
       <View style={styles.container}>
         <TouchableOpacity onPress={handleOpenPDF}>
-          <Text style={styles.fileText}>Open PDF</Text>
+          <Text style={styles.fileText}>Open PDF File</Text>
         </TouchableOpacity>
       </View>
       {view && (
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 20,
+    paddingTop: 15,
+    paddingBottom: 10,
   },
   fileText: {
     fontSize: 20,
