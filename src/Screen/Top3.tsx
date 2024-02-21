@@ -3,6 +3,8 @@ import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import { createThumbnail } from 'react-native-create-thumbnail';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
 
 const Top3 = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -26,11 +28,21 @@ const Top3 = () => {
     <>
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('video')}
+          onPress={() => navigation.navigate('video', { url: videourl })}
           style={styles.container}
+          activeOpacity={0.9}
         >
           <Text style={styles.fileText}>썸네일</Text>
-          {thum && <Image source={{ uri: thum }} style={styles.thum} />}
+          {thum && (
+            <>
+              <Image source={{ uri: thum }} style={styles.thum} />
+              <FontAwesomeIcon
+                icon={faCirclePlay}
+                size={50}
+                style={styles.icon}
+              />
+            </>
+          )}
         </TouchableOpacity>
       </View>
     </>
@@ -54,6 +66,11 @@ const styles = StyleSheet.create({
   thum: {
     width: 150,
     height: 120,
+    opacity: 0.7,
+  },
+  icon: {
+    position: 'relative',
+    bottom: 85,
   },
 });
 

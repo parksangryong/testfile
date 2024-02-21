@@ -2,11 +2,11 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Video from 'react-native-video';
 
-const Videos = () => {
+const Videos = ({ route }: any) => {
   return (
     <View style={styles.pdfbox}>
       <Video
-        source={{ uri: 'https://check.hkcd.kr/mp4.mp4' }} // Can be a URL or a local file.
+        source={{ uri: route.params.url }}
         style={styles.backgroundVideo}
         resizeMode={'contain'}
         controls={true}
