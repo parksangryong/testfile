@@ -30,7 +30,7 @@ const Top3 = () => {
           style={styles.container}
         >
           <Text style={styles.fileText}>썸네일</Text>
-          <Image source={{ uri: thum }} style={styles.thum} />
+          {thum && <Image source={{ uri: thum }} style={styles.thum} />}
         </TouchableOpacity>
       </View>
     </>
