@@ -1,57 +1,59 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
-import Pdf from 'react-native-pdf';
-import checkPdf from '../assets/check.pdf';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import { createThumbnail } from 'react-native-create-thumbnail';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
 const Top3 = () => {
-  const [view, setView] = useState(false);
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-  const handleOpenPDF = () => {
-    setView(!view);
-  };
+  const videourl = 'https://check.hkcd.kr/mp4.mp4';
+  const [thum, setThum] = useState('');
+
+  useEffect(() => {
+    const createThum = async () =>
+      await createThumbnail({
+        url: videourl,
+        timeStamp: 4000,
+      })
+        .then(response => setThum(response.path))
+        .catch(err => console.log('thumError: ', err));
+
+    createThum();
+  }, []);
 
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity onPress={handleOpenPDF}>
-          <Text style={styles.fileText}>Open PDF File</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('video')}
+          style={styles.container}
+        >
+          <Text style={styles.fileText}>썸네일</Text>
+          <Image source={{ uri: thum }} style={styles.thum} />
         </TouchableOpacity>
       </View>
-      {view && (
-        <View style={styles.pdfbox}>
-          <Pdf
-            trustAllCerts={false}
-            source={checkPdf}
-            style={styles.pdf}
-            onError={error => {
-              console.log(error);
-            }}
-          />
-        </View>
-      )}
     </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 15,
+    paddingTop: 5,
     paddingBottom: 10,
   },
   fileText: {
     fontSize: 20,
-    color: 'blue',
+    color: 'black',
     textDecorationLine: 'underline',
+    marginBottom: 10,
   },
-  pdf: {
-    width: '100%',
-    flex: 1,
-  },
-  pdfbox: {
-    flex: 1,
-    padding: 10,
+  thum: {
+    width: 150,
+    height: 120,
   },
 });
 

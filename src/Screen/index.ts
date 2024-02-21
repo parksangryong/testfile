@@ -12,3 +12,6 @@ export { default as Top4 } from './Top4';
 export { default as Top5 } from './Top5';
 export { default as Top6 } from './Top6';
 export { default as Top7 } from './Top7';
+
+export { default as Videos } from './Videos';
+export { default as Header } from './Header';

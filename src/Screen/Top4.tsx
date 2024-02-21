@@ -11,9 +11,11 @@ const Top4 = () => {
   };
 
   const renderActivityIndicator = (progress: number) => {
+    const prog = progress * 1.5;
+
     return (
       <View style={styles.procontainer}>
-        <Progress.Bar progress={progress} width={100} height={10} />
+        <Progress.Bar progress={prog} width={100} height={10} />
         <Text>Loading PDF... </Text>
       </View>
     );
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'blue',
     textDecorationLine: 'underline',
+    marginBottom: 5,
   },
   pdf: {
     width: '100%',

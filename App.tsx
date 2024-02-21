@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 //package
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -17,6 +18,7 @@ import toastConfig from './src/Sub/toast';
 
 //screens
 import {
+  Header,
   Test1,
   Test2,
   Test3,
@@ -30,6 +32,7 @@ import {
   Top5,
   Top6,
   Top7,
+  Videos,
 } from './src/Screen';
 
 //icons
@@ -42,6 +45,7 @@ import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const Top = createMaterialTopTabNavigator();
+const Stack = createStackNavigator();
 
 SplashScreen.preventAutoHideAsync();
 const queryClient = new QueryClient();
@@ -76,6 +80,33 @@ const TopTab = () => {
   );
 };
 
+const Bottom = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarStyle: {
+          paddingBottom: Platform.OS === 'ios' ? 25 : 0,
+        },
+        tabBarShowLabel: false,
+        tabBarIcon: () => {
+          return <FontAwesomeIcon icon={faComputerMouse} color="gray" />;
+        },
+        tabBarActiveBackgroundColor: '#ddd',
+      }}
+    >
+      <Tab.Screen name="screen1" component={Test1} />
+      <Tab.Screen name="screen2" component={Test2} />
+      <Tab.Screen name="screen3" component={Test3} />
+      <Tab.Screen name="screen4" component={Test4} />
+      <Tab.Screen name="screen5" component={Test5} />
+      <Tab.Screen name="screen6" component={Test6} />
+      <Tab.Screen name="screen7" component={TopTab} />
+    </Tab.Navigator>
+  );
+};
+
 const App = () => {
   useEffect(() => {
     setTimeout(async () => {
@@ -86,28 +117,22 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-            tabBarStyle: {
-              paddingBottom: Platform.OS === 'ios' ? 25 : 0,
-            },
-            tabBarShowLabel: false,
-            tabBarIcon: () => {
-              return <FontAwesomeIcon icon={faComputerMouse} color="gray" />;
-            },
-            tabBarActiveBackgroundColor: '#ddd',
-          }}
-        >
-          <Tab.Screen name="screen1" component={Test1} />
-          <Tab.Screen name="screen2" component={Test2} />
-          <Tab.Screen name="screen3" component={Test3} />
-          <Tab.Screen name="screen4" component={Test4} />
-          <Tab.Screen name="screen5" component={Test5} />
-          <Tab.Screen name="screen6" component={Test6} />
-          <Tab.Screen name="screen7" component={TopTab} />
-        </Tab.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="bottom"
+            component={Bottom}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="video"
+            component={Videos}
+            options={{
+              header: () => {
+                return <Header />;
+              },
+            }}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
       <Toast config={toastConfig} />
     </QueryClientProvider>
