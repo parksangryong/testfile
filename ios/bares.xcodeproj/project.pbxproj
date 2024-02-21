@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		96905EF65AED1B983A6B3ABC /* libPods-bares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-bares.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		D0AB65BF2B85C0A700CBA31F /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = D0AB65BE2B85C0A700CBA31F /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,20 @@
 		7A4D352CD337FB3A3BF06240 /* Pods-bares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bares.release.xcconfig"; path = "Target Support Files/Pods-bares/Pods-bares.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = bares/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		D0AB65BE2B85C0A700CBA31F /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		D0AB65C12B85C2B000CBA31F /* check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = check.pdf; sourceTree = "<group>"; };
+		D0AB65C22B85C2B000CBA31F /* inventory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory.png; sourceTree = "<group>"; };
+		D0AB65C32B85C2B000CBA31F /* edit_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_calendar.png; sourceTree = "<group>"; };
+		D0AB65C42B85C2B000CBA31F /* ex.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ex.pdf; sourceTree = "<group>"; };
+		D0AB65C52B85C2B000CBA31F /* storefront.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storefront.png; sourceTree = "<group>"; };
+		D0AB65C62B85C2B000CBA31F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		D0AB65C72B85C2B000CBA31F /* manage_accounts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manage_accounts.png; sourceTree = "<group>"; };
+		D0AB65C82B85C2B000CBA31F /* notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notifications.png; sourceTree = "<group>"; };
+		D0AB65C92B85C2B000CBA31F /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		D0AB65CA2B85C2B000CBA31F /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
+		D0AB65CB2B85C2B000CBA31F /* index.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = index.ts; sourceTree = "<group>"; };
+		D0AB65CC2B85C2B000CBA31F /* image.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = image.d.ts; sourceTree = "<group>"; };
+		D0AB65CD2B85C2B000CBA31F /* add_shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_shopping.png; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-bares/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +92,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D0AB65C02B85C2B000CBA31F /* assets */,
+				D0AB65BE2B85C0A700CBA31F /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* bares */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -112,6 +129,27 @@
 			);
 			name = Supporting;
 			path = bares/Supporting;
+			sourceTree = "<group>";
+		};
+		D0AB65C02B85C2B000CBA31F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB65C12B85C2B000CBA31F /* check.pdf */,
+				D0AB65C22B85C2B000CBA31F /* inventory.png */,
+				D0AB65C32B85C2B000CBA31F /* edit_calendar.png */,
+				D0AB65C42B85C2B000CBA31F /* ex.pdf */,
+				D0AB65C52B85C2B000CBA31F /* storefront.png */,
+				D0AB65C62B85C2B000CBA31F /* menu.png */,
+				D0AB65C72B85C2B000CBA31F /* manage_accounts.png */,
+				D0AB65C82B85C2B000CBA31F /* notifications.png */,
+				D0AB65C92B85C2B000CBA31F /* calendar.png */,
+				D0AB65CA2B85C2B000CBA31F /* schedule.png */,
+				D0AB65CB2B85C2B000CBA31F /* index.ts */,
+				D0AB65CC2B85C2B000CBA31F /* image.d.ts */,
+				D0AB65CD2B85C2B000CBA31F /* add_shopping.png */,
+			);
+			name = assets;
+			path = ../src/assets;
 			sourceTree = "<group>";
 		};
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
@@ -192,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AB65BF2B85C0A700CBA31F /* main.jsbundle in Resources */,
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
@@ -318,6 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL7N5729WK;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -325,7 +365,10 @@
 				);
 				INFOPLIST_FILE = bares/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -348,9 +391,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL7N5729WK;
 				INFOPLIST_FILE = bares/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -414,7 +461,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -473,7 +523,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
