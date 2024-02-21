@@ -41,38 +41,40 @@ const Test2 = () => {
     <View style={stlyes.back}>
       <SafeAreaView>
         <Text style={stlyes.h1}>Toast!</Text>
-        <TouchableOpacity
-          onPress={() =>
-            successGrayToast({
-              icon: 'inventory',
-              text: '정보를 올바르게 입력해 주세요.',
-            })
-          }
-          style={stlyes.btn}
-        >
-          <Text>successGray</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() =>
-            successWhiteToast({
-              icon: 'menu',
-              text: '정보를 올바르게 입력해 주세요.',
-            })
-          }
-          style={stlyes.btn}
-        >
-          <Text>successWhite</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() =>
-            successYellowToast({
-              text: '정보',
-            })
-          }
-          style={stlyes.btn}
-        >
-          <Text>successYellow</Text>
-        </TouchableOpacity>
+        <View style={stlyes.toast}>
+          <TouchableOpacity
+            onPress={() =>
+              successGrayToast({
+                icon: 'inventory',
+                text: '정보를 올바르게 입력해 주세요.',
+              })
+            }
+            style={stlyes.btn}
+          >
+            <Text>successGray</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              successWhiteToast({
+                icon: 'menu',
+                text: '정보를 올바르게 입력해 주세요.',
+              })
+            }
+            style={stlyes.btn}
+          >
+            <Text>successWhite</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              successYellowToast({
+                text: '정보',
+              })
+            }
+            style={stlyes.btn}
+          >
+            <Text>successYellow</Text>
+          </TouchableOpacity>
+        </View>
         <Text style={stlyes.h1}>Shadow</Text>
         <View style={stlyes.shadowbox}>
           <Shadow
@@ -181,6 +183,10 @@ const stlyes = StyleSheet.create({
     fontSize: 18,
     marginLeft: 100,
     marginTop: 15,
+  },
+  toast: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 });
 

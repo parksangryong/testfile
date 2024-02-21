@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     height: 16,
     resizeMode: 'contain',
     marginRight: 5,
-    letterSpacing: -1,
   },
   shadows: {
     shadowColor: '#eeeeee',
