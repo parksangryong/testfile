@@ -15,3 +15,4 @@ export { default as Top7 } from './Top7';
 
 export { default as Videos } from './Videos';
 export { default as Header } from './Header';
+export { default as TopHeader } from './TopHeader';
