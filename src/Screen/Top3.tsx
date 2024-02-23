@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { createThumbnail } from 'react-native-create-thumbnail';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
+import FastImage from 'react-native-fast-image';
 
 const Top3 = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-
-  const videourl = 'https://check.hkcd.kr/mp4.mp4';
   const [thum, setThum] = useState('');
+  const videourl = 'https://check.hkcd.kr/mp4.mp4';
+
+  const createThum = async () => {
+    await createThumbnail({
+      url: videourl,
+      timeStamp: 0,
+    })
+      .then(response => setThum(response.path))
+      .catch(err => console.log('thumError: ', err));
+  };
 
   useEffect(() => {
-    const createThum = async () =>
-      await createThumbnail({
-        url: videourl,
-        timeStamp: 4000,
-      })
-        .then(response => setThum(response.path))
-        .catch(err => console.log('thumError: ', err));
-
     createThum();
   }, []);
 
@@ -32,10 +33,17 @@ const Top3 = () => {
           style={styles.container}
           activeOpacity={0.9}
         >
-          <Text style={styles.fileText}>썸네일</Text>
+          <Text style={styles.fileText}>동영상 썸네일</Text>
           {thum && (
             <>
-              <Image source={{ uri: thum }} style={styles.thum} />
+              <FastImage
+                source={{
+                  uri: thum,
+                  priority: FastImage.priority.normal,
+                }}
+                style={styles.thum}
+                resizeMode={FastImage.resizeMode.cover}
+              />
               <FontAwesomeIcon
                 icon={faCirclePlay}
                 size={50}
@@ -44,6 +52,18 @@ const Top3 = () => {
             </>
           )}
         </TouchableOpacity>
+        <View style={styles.ninja} />
+        <View style={styles.container}>
+          <Text style={styles.fileText}>이미지 썸네일</Text>
+          <FastImage
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2024/01/25/12/30/forest-8531787_960_720.jpg',
+              priority: FastImage.priority.normal,
+            }}
+            style={styles.thumimg}
+            resizeMode={FastImage.resizeMode.cover}
+          />
+        </View>
       </View>
     </>
   );
@@ -68,9 +88,18 @@ const styles = StyleSheet.create({
     height: 120,
     opacity: 0.7,
   },
+  thumimg: {
+    width: 150,
+    height: 120,
+  },
   icon: {
     position: 'relative',
     bottom: 85,
+  },
+  ninja: {
+    width: '80%',
+    height: 2,
+    backgroundColor: 'black',
   },
 });
 
