@@ -181,11 +181,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingBottom: 15,
   },
   bottomSheetHandle: {
     borderWidth: 1,
-    height: 30,
+    height: 0,
     opacity: 0,
   },
   bottomSheetBackground: {
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     lineHeight: 25,
   },
   header: {
-    flex: 0.8,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
