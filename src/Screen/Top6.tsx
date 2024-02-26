@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TopHeader from './TopHeader';
+import DatePicker from 'react-native-date-picker';
 
 const GabTest = () => {
   return (
@@ -38,9 +39,15 @@ const GabTest = () => {
 };
 const Stack = createStackNavigator();
 const TestStack = () => {
+  const [date, setDate] = useState(new Date());
+
   return (
     <View style={styles.center}>
-      <Text style={styles.ctext}>Good</Text>
+      <DatePicker
+        date={date}
+        onDateChange={setDate}
+        textColor="rgba(7,171,183,1)"
+      />
     </View>
   );
 };
