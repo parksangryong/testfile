@@ -11,6 +11,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 import useCustomToast from '../hooks/ToastHook';
+import { COLORS, FONTS } from '../Sub/Constants';
 
 const Test2 = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -146,18 +147,21 @@ const stlyes = StyleSheet.create({
     flex: 1,
   },
   h1: {
-    color: 'black',
+    color: COLORS.defaultColor.black,
     fontSize: 30,
-    fontWeight: 'bold',
     marginTop: 30,
+    fontFamily: FONTS.bold,
+    lineHeight: 38,
   },
   btn: {
-    backgroundColor: 'orange',
+    backgroundColor: COLORS.opacityColor.orange,
     width: 100,
     height: 30,
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,
+    borderWidth: 1,
+    borderColor: COLORS.defaultColor.Gray,
   },
   shadow: {
     backgroundColor: 'purple',
