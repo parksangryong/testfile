@@ -42,6 +42,9 @@ import {
   faFeatherPointed,
 } from '@fortawesome/free-solid-svg-icons';
 import { Platform } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import BottomSheets from './src/Sub/BottomSheets';
 
 const Tab = createBottomTabNavigator();
 const Top = createMaterialTopTabNavigator();
@@ -115,27 +118,33 @@ const App = () => {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="bottom"
-            component={Bottom}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="video"
-            component={Videos}
-            options={{
-              header: () => {
-                return <Header />;
-              },
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <Toast config={toastConfig} />
-    </QueryClientProvider>
+    // eslint-disable-next-line react-native/no-inline-styles
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <BottomSheetModalProvider>
+        <QueryClientProvider client={queryClient}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="bottom"
+                component={Bottom}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="video"
+                component={Videos}
+                options={{
+                  header: () => {
+                    return <Header />;
+                  },
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+          <Toast config={toastConfig} />
+        </QueryClientProvider>
+        <BottomSheets />
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 };
 

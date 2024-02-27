@@ -1,8 +1,13 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useMemo,
+  useRef,
+  // useState
+} from 'react';
 import { View, StyleSheet, ScrollView, Text, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TopHeader from './TopHeader';
-import DatePicker from 'react-native-date-picker';
+// import DatePicker from 'react-native-date-picker';
 import { COLORS, FONTS } from '../Sub/Constants';
 import {
   GestureHandlerRootView,
@@ -13,6 +18,7 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
+import DateSelect from './DateSelect';
 
 const GabTest = () => {
   return (
@@ -49,7 +55,7 @@ const GabTest = () => {
 };
 const Stack = createStackNavigator();
 const TestStack = () => {
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -105,7 +111,8 @@ const TestStack = () => {
             style={styles.sheetContainer}
           >
             <View style={styles.center}>
-              <DatePicker
+              <DateSelect />
+              {/* <DatePicker
                 locale="ko-KR"
                 date={date}
                 onDateChange={setDate}
@@ -116,7 +123,7 @@ const TestStack = () => {
               />
               <TouchableOpacity style={styles.btn}>
                 <Text style={styles.btntext}>선택완료</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </BottomSheetModal>
         </View>

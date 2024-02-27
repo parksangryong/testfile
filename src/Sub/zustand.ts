@@ -128,3 +128,30 @@ export const clickCount4 = create<ClickCount4Type>()((set, get) => ({
       count5: get().count5 - 5,
     }),
 }));
+
+interface bsRefType {
+  ref: any;
+  setRef: (refs: any) => void;
+  ref2: any;
+  setRef2: (refs: any) => void;
+  ref3: any;
+  setRef3: (refs: any) => void;
+}
+
+export const bsRef = create<bsRefType>()(set => ({
+  ref: null,
+  setRef: refs =>
+    set({
+      ref: refs,
+    }),
+  ref2: null,
+  setRef2: refs =>
+    set({
+      ref2: refs,
+    }),
+  ref3: null,
+  setRef3: refs =>
+    set({
+      ref3: refs,
+    }),
+}));
