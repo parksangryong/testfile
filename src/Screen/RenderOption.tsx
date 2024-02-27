@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+
+//style
 import { COLORS, FONTS } from '../Sub/Constants';
+
+//bottomSheet
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 
 const RenderOptions = ({
@@ -9,9 +13,13 @@ const RenderOptions = ({
   setSelectedValue,
   text,
   scrollViewRef,
+  itemFontSize,
+  itemHeight,
+  pointColor,
+  pointBackgroundColor,
 }: any) => {
   const selectedIndex = options.indexOf(selectedValue);
-  const ITEM_HEIGHT = 40;
+  const ITEM_HEIGHT = itemHeight ? itemHeight : 40;
 
   const scrollChange = () => {
     if (scrollViewRef.current) {
@@ -28,10 +36,12 @@ const RenderOptions = ({
     }, 700);
 
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     scrollChange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedValue]);
 
   return (
@@ -49,9 +59,12 @@ const RenderOptions = ({
             // eslint-disable-next-line react-native/no-inline-styles
             {
               backgroundColor:
-                option === selectedValue
-                  ? COLORS.opacityColor.mint
-                  : 'transparent',
+                option !== selectedValue
+                  ? 'transparent'
+                  : pointBackgroundColor
+                  ? pointBackgroundColor
+                  : COLORS.opacityColor.mint,
+              height: itemHeight ? itemHeight : 40,
             },
           ]}
           onPress={() => setSelectedValue(option)}
@@ -59,13 +72,18 @@ const RenderOptions = ({
           <Text
             style={[
               styles.text,
+              // eslint-disable-next-line react-native/no-inline-styles
               {
                 fontFamily:
                   option === selectedValue ? FONTS.bold : FONTS.regular,
                 color:
-                  option === selectedValue
-                    ? COLORS.defaultColor.main
-                    : COLORS.defaultColor.black,
+                  option !== selectedValue
+                    ? COLORS.defaultColor.deepGray
+                    : pointColor
+                    ? pointColor
+                    : COLORS.defaultColor.main,
+                fontSize: itemFontSize ? itemFontSize : 17,
+                lineHeight: itemFontSize ? itemFontSize + 5 : 22,
               },
             ]}
           >

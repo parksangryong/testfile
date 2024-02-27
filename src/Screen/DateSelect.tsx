@@ -1,10 +1,18 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+
+//style
 import { COLORS, FONTS } from '../Sub/Constants';
 
+//component
 import RenderOptions from './RenderOption';
 
-const DateSelect = () => {
+const DateSelect = ({
+  itemHeight,
+  pointColor,
+  pointBackgroundColor,
+  itemFontSize,
+}: any) => {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState(new Date().getDay());
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
@@ -32,6 +40,10 @@ const DateSelect = () => {
           setSelectedValue={setSelectedYear}
           text="년"
           scrollViewRef={yearScrollViewRef}
+          itemHeight={itemHeight}
+          pointColor={pointColor}
+          pointBackgroundColor={pointBackgroundColor}
+          itemFontSize={itemFontSize}
         />
         <RenderOptions
           options={months}
@@ -39,6 +51,10 @@ const DateSelect = () => {
           setSelectedValue={setSelectedMonth}
           text="월"
           scrollViewRef={monthScrollViewRef}
+          itemHeight={itemHeight}
+          pointColor={pointColor}
+          pointBackgroundColor={pointBackgroundColor}
+          itemFontSize={itemFontSize}
         />
         <RenderOptions
           options={days}
@@ -46,6 +62,10 @@ const DateSelect = () => {
           setSelectedValue={setSelectedDay}
           text="일"
           scrollViewRef={dayScrollViewRef}
+          itemHeight={itemHeight}
+          pointColor={pointColor}
+          pointBackgroundColor={pointBackgroundColor}
+          itemFontSize={itemFontSize}
         />
       </View>
       <TouchableOpacity
@@ -67,9 +87,10 @@ const styles = StyleSheet.create({
   dateBox: {
     flex: 2,
     flexDirection: 'row',
+    marginTop: 5,
   },
   optionContainer: {
-    maxHeight: 200,
+    maxHeight: 210,
     width: '30%',
     borderRadius: 5,
     marginVertical: 10,
@@ -86,7 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   btntext: {
     fontFamily: FONTS.bold,

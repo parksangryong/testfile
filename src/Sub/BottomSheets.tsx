@@ -1,15 +1,22 @@
 import React, { useEffect, useRef } from 'react';
-import { BottomSheetModalComponent } from '../Screen';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
+
+//bottomSheet
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { BottomSheetModalComponent } from '../Screen';
+
+//zustand
 import { bsRef } from './zustand';
+
+//style
+import { COLORS } from './Constants';
 
 const BottomSheets = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const bottomSheetModalRef2 = useRef<BottomSheetModal>(null);
   const bottomSheetModalRef3 = useRef<BottomSheetModal>(null);
 
-  const { setRef, setRef2, setRef3 } = bsRef();
+  const { setRef, setRef2, setRef3, ref, ref2, ref3 } = bsRef();
 
   useEffect(() => {
     setRef(bottomSheetModalRef);
@@ -26,27 +33,39 @@ const BottomSheets = () => {
         andSnap={'60%'}
         children={
           <View>
+            <StatusBar backgroundColor={COLORS.defaultColor.black} />
             <Text>1번 바텀시트</Text>
+            <TouchableOpacity onPress={() => ref.current.close()}>
+              <Text>닫기</Text>
+            </TouchableOpacity>
           </View>
         }
       />
       <BottomSheetModalComponent
         bottomSheetModalRef={bottomSheetModalRef2}
-        iosSnap={'50%'}
-        andSnap={'40%'}
+        iosSnap={'90%'}
+        andSnap={'90%'}
         children={
           <View>
+            <StatusBar backgroundColor={COLORS.defaultColor.black} />
             <Text>2번 바텀시트</Text>
+            <TouchableOpacity onPress={() => ref2.current.close()}>
+              <Text>닫기</Text>
+            </TouchableOpacity>
           </View>
         }
       />
       <BottomSheetModalComponent
         bottomSheetModalRef={bottomSheetModalRef3}
-        iosSnap={'20%'}
-        andSnap={'15%'}
+        iosSnap={'50%'}
+        andSnap={'40%'}
         children={
           <View>
+            <StatusBar backgroundColor={COLORS.defaultColor.black} />
             <Text>3번 바텀시트</Text>
+            <TouchableOpacity onPress={() => ref3.current.close()}>
+              <Text>닫기</Text>
+            </TouchableOpacity>
           </View>
         }
       />

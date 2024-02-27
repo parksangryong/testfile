@@ -111,7 +111,12 @@ const TestStack = () => {
             style={styles.sheetContainer}
           >
             <View style={styles.center}>
-              <DateSelect />
+              <DateSelect
+                itemFontSize={16}
+                itemHeight={45}
+                pointColor={COLORS.defaultColor.main}
+                pointBackgroundColor={COLORS.opacityColor.mint}
+              />
               {/* <DatePicker
                 locale="ko-KR"
                 date={date}
@@ -199,7 +204,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   btntext: {
     fontFamily: FONTS.bold,
