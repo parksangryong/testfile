@@ -1,97 +1,122 @@
 import React, { useEffect } from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  StyleSheet,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  Platform,
+} from 'react-native';
 
 //style
 import { COLORS, FONTS } from '../Sub/Constants';
 
 //bottomSheet
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
+import RenderItem from './RenderItem';
 
 const RenderOptions = ({
   options = [],
-  selectedValue,
   setSelectedValue,
   text,
   scrollViewRef,
   itemFontSize,
   itemHeight,
+  selectedValue,
   pointColor,
-  pointBackgroundColor,
 }: any) => {
-  const selectedIndex = options.indexOf(selectedValue);
   const ITEM_HEIGHT = itemHeight ? itemHeight : 40;
 
   const scrollChange = () => {
-    if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({
-        y: (selectedIndex + 1) * ITEM_HEIGHT - ITEM_HEIGHT * 1,
-        animated: true,
-      });
-    }
+    const selectedIndex = options.indexOf(selectedValue);
+    scrollViewRef.current.scrollTo({
+      x: 0,
+      y: selectedIndex * ITEM_HEIGHT,
+      animated: false,
+    });
+  };
+
+  const changeValue = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const y = Math.round(event.nativeEvent.contentOffset.y);
+    const Index = Math.round(y / itemHeight);
+    const Value = options[Index];
+
+    setSelectedValue(Value);
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      scrollChange();
-    }, 700);
-
-    return () => clearTimeout(timeout);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (Platform.OS === 'ios') {
+      setTimeout(() => {
+        scrollChange();
+      }, 100);
+    } else {
+      setTimeout(() => {
+        scrollChange();
+      }, 1000);
+    }
   }, []);
 
-  useEffect(() => {
-    scrollChange();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedValue]);
-
   return (
-    <BottomSheetScrollView
-      ref={scrollViewRef}
-      style={styles.optionContainer}
-      contentContainerStyle={styles.oo}
-      showsVerticalScrollIndicator={false}
-    >
-      {options.map((option: string, index: number) => (
-        <TouchableOpacity
-          key={index}
-          style={[
-            styles.option,
-            // eslint-disable-next-line react-native/no-inline-styles
+    <>
+      {Platform.OS === 'ios' ? (
+        <ScrollView
+          ref={scrollViewRef}
+          style={styles.optionContainer}
+          contentContainerStyle={[
+            styles.oo,
+
             {
-              backgroundColor:
-                option !== selectedValue
-                  ? 'transparent'
-                  : pointBackgroundColor
-                  ? pointBackgroundColor
-                  : COLORS.opacityColor.mint,
-              height: itemHeight ? itemHeight : 40,
+              paddingVertical:
+                itemHeight > 50 ? 80 - itemHeight * 0.2 : 75 + itemHeight * 0.1,
             },
           ]}
-          onPress={() => setSelectedValue(option)}
+          showsVerticalScrollIndicator={false}
+          onScroll={event => changeValue(event)}
+          scrollEventThrottle={16}
+          bounces={false}
         >
-          <Text
-            style={[
-              styles.text,
-              // eslint-disable-next-line react-native/no-inline-styles
-              {
-                fontFamily:
-                  option === selectedValue ? FONTS.bold : FONTS.regular,
-                color:
-                  option !== selectedValue
-                    ? COLORS.defaultColor.deepGray
-                    : pointColor
-                    ? pointColor
-                    : COLORS.defaultColor.main,
-                fontSize: itemFontSize ? itemFontSize : 17,
-                lineHeight: itemFontSize ? itemFontSize + 5 : 22,
-              },
-            ]}
-          >
-            {option} {text}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </BottomSheetScrollView>
+          {options.map((option: string, index: number) => (
+            <RenderItem
+              option={option}
+              key={index}
+              // setSelectedValue={setSelectedValue}
+              text={text}
+              itemFontSize={itemFontSize}
+              itemHeight={itemHeight}
+              selectedValue={selectedValue}
+              pointColor={pointColor}
+            />
+          ))}
+        </ScrollView>
+      ) : (
+        <BottomSheetScrollView
+          ref={scrollViewRef}
+          style={styles.optionContainer2}
+          contentContainerStyle={[
+            styles.oo,
+            {
+              paddingVertical:
+                itemHeight > 50 ? 80 - itemHeight * 0.2 : 75 + itemHeight * 0.1,
+            },
+          ]}
+          showsVerticalScrollIndicator={false}
+          onScroll={event => changeValue(event)}
+          bounces={false}
+        >
+          {options.map((option: string, index: number) => (
+            <RenderItem
+              option={option}
+              key={index}
+              // setSelectedValue={setSelectedValue}
+              text={text}
+              itemFontSize={itemFontSize}
+              itemHeight={itemHeight}
+              selectedValue={selectedValue}
+              pointColor={pointColor}
+            />
+          ))}
+        </BottomSheetScrollView>
+      )}
+    </>
   );
 };
 
@@ -100,9 +125,16 @@ const styles = StyleSheet.create({
     paddingVertical: 80,
   },
   optionContainer: {
-    maxHeight: 200,
+    maxHeight: 210,
+    width: '33%',
+    borderRadius: 5,
+    zIndex: 10,
+  },
+  optionContainer2: {
+    maxHeight: 210,
     width: '100%',
     borderRadius: 5,
+    zIndex: 10,
   },
   option: {
     height: 40,
@@ -112,6 +144,15 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 17,
     lineHeight: 22,
+    color: COLORS.defaultColor.deepGray,
+    fontFamily: FONTS.regular,
+  },
+  btntext: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    borderRadius: 30,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 //style
 import { COLORS, FONTS } from '../Sub/Constants';
@@ -12,9 +12,10 @@ const DateSelect = ({
   pointColor,
   pointBackgroundColor,
   itemFontSize,
+  handlePress,
 }: any) => {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getDay());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getDay() - 1);
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
 
   const yearScrollViewRef = useRef(null);
@@ -34,44 +35,58 @@ const DateSelect = ({
   return (
     <View style={styles.container}>
       <View style={styles.dateBox}>
+        <View
+          style={[
+            styles.activeBar,
+            // eslint-disable-next-line react-native/no-inline-styles
+            {
+              height: itemHeight ? itemHeight : 40,
+              top: itemHeight ? (200 - itemHeight) / 2 : 80,
+              backgroundColor: pointBackgroundColor
+                ? pointBackgroundColor
+                : COLORS.opacityColor.mint,
+            },
+          ]}
+        />
         <RenderOptions
           options={years}
-          selectedValue={selectedYear}
           setSelectedValue={setSelectedYear}
           text="년"
           scrollViewRef={yearScrollViewRef}
           itemHeight={itemHeight}
-          pointColor={pointColor}
-          pointBackgroundColor={pointBackgroundColor}
           itemFontSize={itemFontSize}
+          selectedValue={selectedYear}
+          pointColor={pointColor}
         />
         <RenderOptions
           options={months}
-          selectedValue={selectedMonth}
           setSelectedValue={setSelectedMonth}
           text="월"
           scrollViewRef={monthScrollViewRef}
           itemHeight={itemHeight}
-          pointColor={pointColor}
-          pointBackgroundColor={pointBackgroundColor}
           itemFontSize={itemFontSize}
+          selectedValue={selectedMonth}
+          pointColor={pointColor}
         />
         <RenderOptions
           options={days}
-          selectedValue={selectedDay}
           setSelectedValue={setSelectedDay}
           text="일"
           scrollViewRef={dayScrollViewRef}
           itemHeight={itemHeight}
-          pointColor={pointColor}
-          pointBackgroundColor={pointBackgroundColor}
           itemFontSize={itemFontSize}
+          selectedValue={selectedDay}
+          pointColor={pointColor}
         />
       </View>
       <TouchableOpacity
         style={styles.btn}
         onPress={() =>
-          Alert.alert(`${selectedYear}년 ${selectedMonth}월 ${selectedDay}일`)
+          handlePress({
+            year: selectedYear,
+            month: selectedMonth,
+            day: selectedDay,
+          })
         }
       >
         <Text style={styles.btntext}>선택완료</Text>
@@ -83,11 +98,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginBottom: 20,
+    width: '100%',
+    paddingHorizontal: 10,
   },
   dateBox: {
     flex: 2,
     flexDirection: 'row',
-    marginTop: 5,
   },
   optionContainer: {
     maxHeight: 210,
@@ -101,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    width: 356,
+    width: '100%',
     height: 60,
     backgroundColor: COLORS.defaultColor.main,
     borderRadius: 10,
@@ -114,6 +130,14 @@ const styles = StyleSheet.create({
     lineHeight: 60,
     color: COLORS.defaultColor.white,
     fontSize: 16,
+  },
+  activeBar: {
+    width: '100%',
+    zIndex: -1,
+    position: 'absolute',
+    backgroundColor: COLORS.opacityColor.mint,
+    top: 80,
+    height: 40,
   },
 });
 export default DateSelect;

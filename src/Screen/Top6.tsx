@@ -4,7 +4,14 @@ import React, {
   useRef,
   // useState
 } from 'react';
-import { View, StyleSheet, ScrollView, Text, Platform } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Text,
+  Platform,
+  Alert,
+} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TopHeader from './TopHeader';
 // import DatePicker from 'react-native-date-picker';
@@ -18,8 +25,12 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
-import DateSelect from './DateSelect';
 
+import { selectDate } from '../Sub/zustand';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faCoffee } from '@fortawesome/pro-solid-svg-icons';
+
+import DateSelect from './DateSelect';
 const GabTest = () => {
   return (
     <ScrollView>
@@ -87,6 +98,14 @@ const TestStack = () => {
     [],
   );
 
+  const handlePress = ({ year, month, day }: any) => {
+    Alert.alert(`${year}년 ${month}월 ${day}일`);
+    setDate(`${year}년 ${month}월 ${day}일`);
+    bottomSheetModalRef.current?.close();
+  };
+
+  const { date, setDate } = selectDate();
+
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -96,7 +115,9 @@ const TestStack = () => {
             onPress={handlePresentModalPress}
             style={styles.open}
           >
-            <Text>Open</Text>
+            <Text style={styles.openText}>Open</Text>
+            <FontAwesomeIcon icon={faCoffee} />
+            <Text style={styles.openDate}>{date}</Text>
           </TouchableOpacity>
 
           <BottomSheetModal
@@ -109,26 +130,16 @@ const TestStack = () => {
             handleStyle={styles.bottomSheetHandle}
             backgroundStyle={[styles.bottomSheetBackground]}
             style={styles.sheetContainer}
+            enablePanDownToClose={false}
           >
             <View style={styles.center}>
               <DateSelect
-                itemFontSize={16}
-                itemHeight={45}
+                itemFontSize={18}
+                itemHeight={50}
                 pointColor={COLORS.defaultColor.main}
                 pointBackgroundColor={COLORS.opacityColor.mint}
+                handlePress={handlePress}
               />
-              {/* <DatePicker
-                locale="ko-KR"
-                date={date}
-                onDateChange={setDate}
-                textColor={COLORS.defaultColor.main}
-                style={styles.pick}
-                mode="date"
-                fadeToColor={COLORS.defaultColor.white}
-              />
-              <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btntext}>선택완료</Text>
-              </TouchableOpacity> */}
             </View>
           </BottomSheetModal>
         </View>
@@ -184,6 +195,22 @@ const styles = StyleSheet.create({
   },
   open: {
     marginTop: 30,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+  },
+  openText: {
+    fontFamily: FONTS.medium,
+    fontSize: 20,
+    lineHeight: 23,
+    color: COLORS.defaultColor.black,
+  },
+  openDate: {
+    fontFamily: FONTS.regular,
+    fontSize: 14,
+    lineHeight: 18,
+    color: COLORS.defaultColor.deepGray,
   },
   color: {
     color: 'green',

@@ -155,3 +155,16 @@ export const bsRef = create<bsRefType>()(set => ({
       ref3: refs,
     }),
 }));
+
+interface selectDateType {
+  date: string;
+  setDate: (dates: string) => void;
+}
+
+export const selectDate = create<selectDateType>()(set => ({
+  date: '',
+  setDate: dates =>
+    set({
+      date: dates,
+    }),
+}));
