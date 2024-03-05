@@ -31,6 +31,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCoffee } from '@fortawesome/pro-solid-svg-icons';
 
 import DateSelect from './DateSelect';
+import TimeSelect from './TimeSelect';
 const GabTest = () => {
   return (
     <ScrollView>
@@ -69,6 +70,7 @@ const TestStack = () => {
   // const [date, setDate] = useState(new Date());
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const bottomSheetModalRef2 = useRef<BottomSheetModal>(null);
 
   // variables
   const snapPoints = useMemo(
@@ -79,6 +81,10 @@ const TestStack = () => {
   // callbacks
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
+  }, []);
+  // callbacks
+  const handlePresentModalPress2 = useCallback(() => {
+    bottomSheetModalRef2.current?.present();
   }, []);
 
   const handleSheetChanges = useCallback((index: number) => {
@@ -104,6 +110,11 @@ const TestStack = () => {
     bottomSheetModalRef.current?.close();
   };
 
+  const handlePress2 = ({ hours, minute, ampm }: any) => {
+    Alert.alert(`${ampm} ${hours}시 ${minute}분`);
+    bottomSheetModalRef2.current?.close();
+  };
+
   const { date, setDate } = selectDate();
 
   return (
@@ -115,7 +126,16 @@ const TestStack = () => {
             onPress={handlePresentModalPress}
             style={styles.open}
           >
-            <Text style={styles.openText}>Open</Text>
+            <Text style={styles.openText}>OpenDate</Text>
+            <FontAwesomeIcon icon={faCoffee} />
+            <Text style={styles.openDate}>{date}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={handlePresentModalPress2}
+            style={styles.open}
+          >
+            <Text style={styles.openText}>OpenTime</Text>
             <FontAwesomeIcon icon={faCoffee} />
             <Text style={styles.openDate}>{date}</Text>
           </TouchableOpacity>
@@ -131,6 +151,7 @@ const TestStack = () => {
             backgroundStyle={[styles.bottomSheetBackground]}
             style={styles.sheetContainer}
             enablePanDownToClose={false}
+            enableContentPanningGesture={false}
           >
             <View style={styles.center}>
               <DateSelect
@@ -139,6 +160,29 @@ const TestStack = () => {
                 pointColor={COLORS.defaultColor.main}
                 pointBackgroundColor={COLORS.opacityColor.mint}
                 handlePress={handlePress}
+              />
+            </View>
+          </BottomSheetModal>
+          <BottomSheetModal
+            ref={bottomSheetModalRef2}
+            snapPoints={snapPoints}
+            backdropComponent={renderBackdrop}
+            onChange={handleSheetChanges}
+            bottomInset={26}
+            detached={true}
+            handleStyle={styles.bottomSheetHandle}
+            backgroundStyle={[styles.bottomSheetBackground]}
+            style={styles.sheetContainer}
+            enablePanDownToClose={false}
+            enableContentPanningGesture={false}
+          >
+            <View style={styles.center}>
+              <TimeSelect
+                itemFontSize={18}
+                itemHeight={50}
+                pointColor={COLORS.defaultColor.main}
+                pointBackgroundColor={COLORS.opacityColor.mint}
+                handlePress={handlePress2}
               />
             </View>
           </BottomSheetModal>

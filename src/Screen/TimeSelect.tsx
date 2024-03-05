@@ -7,30 +7,30 @@ import { COLORS, FONTS } from '../Sub/Constants';
 //component
 import RenderOptions from './RenderOption';
 
-const DateSelect = ({
+const TimeSelect = ({
   itemHeight,
   pointColor,
   pointBackgroundColor,
   itemFontSize,
   handlePress,
 }: any) => {
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
-  const [selectedDay, setSelectedDay] = useState(new Date().getDate());
-
-  const yearScrollViewRef = useRef(null);
-  const monthScrollViewRef = useRef(null);
-  const dayScrollViewRef = useRef(null);
-
-  const years = Array.from(
-    { length: 21 },
-    (_, index) => new Date().getFullYear() - 10 + index,
+  const [selectedHours, setSelectedHours] = useState(
+    new Date().getHours() > 12
+      ? new Date().getHours() - 12
+      : new Date().getHours(),
   );
-  const months = Array.from({ length: 12 }, (_, index) => index + 1);
-  const days = Array.from(
-    { length: new Date(selectedYear, selectedMonth, 0).getDate() },
-    (_, index) => index + 1,
+  const [selectedMinute, setSelectedMinute] = useState(new Date().getMinutes());
+  const [selectAmpm, setSelectedAmpm] = useState(
+    new Date().getHours() > 12 ? 'PM' : 'AM',
   );
+
+  const hoursScrollViewRef = useRef(null);
+  const minuteScrollViewRef = useRef(null);
+  const AmpmRef = useRef(null);
+
+  const years = Array.from({ length: 12 }, (_, index) => index + 1);
+  const months = Array.from({ length: 60 }, (_, index) => index + 1);
+  const ampm = ['AM', 'PM'];
 
   return (
     <View style={styles.container}>
@@ -49,33 +49,33 @@ const DateSelect = ({
           ]}
         />
         <RenderOptions
-          options={years}
-          setSelectedValue={setSelectedYear}
-          text="년"
-          scrollViewRef={yearScrollViewRef}
+          options={ampm}
+          setSelectedValue={setSelectedAmpm}
+          text=""
+          scrollViewRef={AmpmRef}
           itemHeight={itemHeight}
           itemFontSize={itemFontSize}
-          selectedValue={selectedYear}
+          selectedValue={selectAmpm}
+          pointColor={pointColor}
+        />
+        <RenderOptions
+          options={years}
+          setSelectedValue={setSelectedHours}
+          text="시"
+          scrollViewRef={hoursScrollViewRef}
+          itemHeight={itemHeight}
+          itemFontSize={itemFontSize}
+          selectedValue={selectedHours}
           pointColor={pointColor}
         />
         <RenderOptions
           options={months}
-          setSelectedValue={setSelectedMonth}
-          text="월"
-          scrollViewRef={monthScrollViewRef}
+          setSelectedValue={setSelectedMinute}
+          text="분"
+          scrollViewRef={minuteScrollViewRef}
           itemHeight={itemHeight}
           itemFontSize={itemFontSize}
-          selectedValue={selectedMonth}
-          pointColor={pointColor}
-        />
-        <RenderOptions
-          options={days}
-          setSelectedValue={setSelectedDay}
-          text="일"
-          scrollViewRef={dayScrollViewRef}
-          itemHeight={itemHeight}
-          itemFontSize={itemFontSize}
-          selectedValue={selectedDay}
+          selectedValue={selectedMinute}
           pointColor={pointColor}
         />
       </View>
@@ -83,9 +83,9 @@ const DateSelect = ({
         style={styles.btn}
         onPress={() =>
           handlePress({
-            year: selectedYear,
-            month: selectedMonth,
-            day: selectedDay,
+            hours: selectedHours,
+            minute: selectedMinute,
+            ampm: selectAmpm,
           })
         }
       >
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
     height: 40,
   },
 });
-export default DateSelect;
+export default TimeSelect;

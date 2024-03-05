@@ -4,14 +4,12 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
-  Platform,
 } from 'react-native';
 
 //style
 import { COLORS, FONTS } from '../Sub/Constants';
 
 //bottomSheet
-import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import RenderItem from './RenderItem';
 
 const RenderOptions = ({
@@ -44,78 +42,43 @@ const RenderOptions = ({
   };
 
   useEffect(() => {
-    if (Platform.OS === 'ios') {
-      setTimeout(() => {
-        scrollChange();
-      }, 100);
-    } else {
-      setTimeout(() => {
-        scrollChange();
-      }, 1000);
-    }
+    setTimeout(() => {
+      scrollChange();
+    }, 100);
   }, []);
 
   return (
     <>
-      {Platform.OS === 'ios' ? (
-        <ScrollView
-          ref={scrollViewRef}
-          style={styles.optionContainer}
-          contentContainerStyle={[
-            styles.oo,
+      <ScrollView
+        ref={scrollViewRef}
+        style={styles.optionContainer}
+        contentContainerStyle={[
+          styles.oo,
 
-            {
-              paddingVertical:
-                itemHeight > 50 ? 80 - itemHeight * 0.2 : 75 + itemHeight * 0.1,
-            },
-          ]}
-          showsVerticalScrollIndicator={false}
-          onScroll={event => changeValue(event)}
-          scrollEventThrottle={16}
-          bounces={false}
-        >
-          {options.map((option: string, index: number) => (
-            <RenderItem
-              option={option}
-              key={index}
-              // setSelectedValue={setSelectedValue}
-              text={text}
-              itemFontSize={itemFontSize}
-              itemHeight={itemHeight}
-              selectedValue={selectedValue}
-              pointColor={pointColor}
-            />
-          ))}
-        </ScrollView>
-      ) : (
-        <BottomSheetScrollView
-          ref={scrollViewRef}
-          style={styles.optionContainer2}
-          contentContainerStyle={[
-            styles.oo,
-            {
-              paddingVertical:
-                itemHeight > 50 ? 80 - itemHeight * 0.2 : 75 + itemHeight * 0.1,
-            },
-          ]}
-          showsVerticalScrollIndicator={false}
-          onScroll={event => changeValue(event)}
-          bounces={false}
-        >
-          {options.map((option: string, index: number) => (
-            <RenderItem
-              option={option}
-              key={index}
-              // setSelectedValue={setSelectedValue}
-              text={text}
-              itemFontSize={itemFontSize}
-              itemHeight={itemHeight}
-              selectedValue={selectedValue}
-              pointColor={pointColor}
-            />
-          ))}
-        </BottomSheetScrollView>
-      )}
+          {
+            paddingVertical:
+              itemHeight > 50 ? 80 - itemHeight * 0.2 : 75 + itemHeight * 0.1,
+          },
+        ]}
+        showsVerticalScrollIndicator={false}
+        onScroll={event => changeValue(event)}
+        scrollEventThrottle={16}
+        bounces={false}
+        onScrollEndDrag={() => scrollChange()}
+      >
+        {options.map((option: string, index: number) => (
+          <RenderItem
+            option={option}
+            key={index}
+            // setSelectedValue={setSelectedValue}
+            text={text}
+            itemFontSize={itemFontSize}
+            itemHeight={itemHeight}
+            selectedValue={selectedValue}
+            pointColor={pointColor}
+          />
+        ))}
+      </ScrollView>
     </>
   );
 };
@@ -127,12 +90,6 @@ const styles = StyleSheet.create({
   optionContainer: {
     maxHeight: 210,
     width: '33%',
-    borderRadius: 5,
-    zIndex: 10,
-  },
-  optionContainer2: {
-    maxHeight: 210,
-    width: '100%',
     borderRadius: 5,
     zIndex: 10,
   },

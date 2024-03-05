@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
 //navigation
@@ -34,6 +35,7 @@ import {
   Top7,
   Videos,
 } from './src/Screen';
+import { VTest1, VTest2 } from './src/Screen/bottom2';
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -41,7 +43,9 @@ import {
   faComputerMouse,
   faFeatherPointed,
 } from '@fortawesome/free-solid-svg-icons';
-import { Platform } from 'react-native';
+import { faTRex } from '@fortawesome/pro-regular-svg-icons';
+
+//bottomSheet
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import BottomSheets from './src/Sub/BottomSheets';
@@ -110,6 +114,28 @@ const Bottom = () => {
   );
 };
 
+const Bottom2 = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarStyle: {
+          paddingBottom: Platform.OS === 'ios' ? 25 : 0,
+        },
+        tabBarShowLabel: false,
+        tabBarIcon: () => {
+          return <FontAwesomeIcon icon={faTRex} color="black" size={25} />;
+        },
+        tabBarActiveBackgroundColor: '#eee',
+      }}
+    >
+      <Tab.Screen name="vtest1" component={VTest1} />
+      <Tab.Screen name="vtest2" component={VTest2} />
+    </Tab.Navigator>
+  );
+};
+
 const App = () => {
   useEffect(() => {
     setTimeout(async () => {
@@ -137,6 +163,11 @@ const App = () => {
                     return <Header />;
                   },
                 }}
+              />
+              <Stack.Screen
+                name="bottom2"
+                component={Bottom2}
+                options={{ headerShown: false }}
               />
             </Stack.Navigator>
           </NavigationContainer>

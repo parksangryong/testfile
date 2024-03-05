@@ -5,6 +5,7 @@ import * as Progress from 'react-native-progress';
 import RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 import axios from 'axios';
+// import * as FileSystem from 'expo-file-system';
 
 const Top5 = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +15,7 @@ const Top5 = () => {
 
   const downloadFile = async () => {
     const fileUrl = 'https://check.hkcd.kr/pdf.pdf'; // 다운로드할 파일의 URL
-    const fileName = 'long.pdf'; // 저장될 파일의 이름
+    const fileName = 'ww.pdf'; // 저장될 파일의 이름
     setIsLoading(true);
 
     let path =
@@ -37,6 +38,20 @@ const Top5 = () => {
     };
 
     try {
+      // const downloadResumable = FileSystem.createDownloadResumable(
+      //   fileUrl,
+      //   FileSystem.documentDirectory + fileName,
+      //   {},
+      //   downloadProgress => {
+      //     // eslint-disable-next-line @typescript-eslint/no-shadow
+      //     const progress =
+      //       downloadProgress.totalBytesWritten /
+      //       downloadProgress.totalBytesExpectedToWrite;
+      //     console.log(`Download progress: ${progress * 100}%`);
+      //   },
+      // );
+      // await downloadResumable.downloadAsync();
+      // console.log('File downloaded');
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const result = await RNFS.downloadFile(options).promise;
       console.log('파일 다운로드 성공:', path);

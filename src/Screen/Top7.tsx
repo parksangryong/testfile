@@ -2,10 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { bsRef } from '../Sub/zustand';
 import { COLORS } from '../Sub/Constants';
+import { useNavigation } from '@react-navigation/native';
 
 const Top7 = () => {
   //바텀시트
   const { ref, ref2, ref3 } = bsRef();
+
+  const navigation = useNavigation<any>();
 
   return (
     <View style={styles.container}>
@@ -26,6 +29,13 @@ const Top7 = () => {
         style={styles.btn}
       >
         <Text>open3</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate('bottom2')}
+        style={styles.btn}
+      >
+        <Text>nextBottomStack</Text>
       </TouchableOpacity>
     </View>
   );
