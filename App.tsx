@@ -35,7 +35,7 @@ import {
   Top7,
   Videos,
 } from './src/Screen';
-import { VTest1, VTest2 } from './src/Screen/bottom2';
+import { VTest1, VTest2, VTest3 } from './src/Screen/bottom2';
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -132,6 +132,7 @@ const Bottom2 = () => {
     >
       <Tab.Screen name="vtest1" component={VTest1} />
       <Tab.Screen name="vtest2" component={VTest2} />
+      <Tab.Screen name="vtest3" component={VTest3} />
     </Tab.Navigator>
   );
 };

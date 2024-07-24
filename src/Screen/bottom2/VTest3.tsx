@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Button, StyleSheet, Text, Platform } from 'react-native';
 // import RNFetchBlob from 'rn-fetch-blob';
 import * as Progress from 'react-native-progress';
-import RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 import axios from 'axios';
+import * as FileSystem from 'expo-file-system';
 
-const Top5 = () => {
+const VTest3 = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [progress2, setProgress2] = useState(0);
@@ -14,40 +14,32 @@ const Top5 = () => {
 
   const downloadFile = async () => {
     const fileUrl = 'https://check.hkcd.kr/pdf.pdf'; // 다운로드할 파일의 URL
-    const fileName = 'ww.pdf'; // 저장될 파일의 이름
+    const fileName = 'renew.pdf'; // 저장될 파일의 이름
     setIsLoading(true);
 
-    let path =
-      Platform.OS === 'ios'
-        ? `${RNFS.DocumentDirectoryPath}/${fileName}`
-        : `${RNFS.DownloadDirectoryPath}/${fileName}`;
-
-    const options = {
-      fromUrl: fileUrl,
-      toFile: path,
-      begin: (res: any) => {
-        console.log(res);
-      },
-      progress: (res: { bytesWritten: number; contentLength: number }) => {
-        let currentProgress = res.bytesWritten / res.contentLength;
-        if (currentProgress - progress >= 0.1) {
-          setProgress(currentProgress);
-        }
-      },
-    };
-
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const result = await RNFS.downloadFile(options).promise;
-      console.log('파일 다운로드 성공:', path);
+      const downloadResumable = FileSystem.createDownloadResumable(
+        fileUrl,
+        Platform.OS === 'ios'
+          ? FileSystem.documentDirectory + fileName
+          : FileSystem.documentDirectory + fileName,
+        {},
+        downloadProgress => {
+          // eslint-disable-next-line @typescript-eslint/no-shadow
+          const progress =
+            downloadProgress.totalBytesWritten /
+            downloadProgress.totalBytesExpectedToWrite;
+          setProgress(progress);
+        },
+      );
+      await downloadResumable.downloadAsync();
+      console.log('File downloaded: ', downloadResumable.fileUri);
       setIsLoading(false);
       setProgress(0); // 다운로드가 완료되면 프로그레스를 리셋합니다.
-      return path;
     } catch (error) {
       console.error('파일 다운로드 실패:', error);
       setIsLoading(false);
       setProgress(0);
-      return null;
     }
   };
 
@@ -158,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Top5;
+export default VTest3;
