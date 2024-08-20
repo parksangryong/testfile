@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05FA7412FB8E4959A2885195 /* NotoSansCJKkr-DemiLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-DemiLight.otf"; path = "../src/assets/fonts/NotoSansCJKkr-DemiLight.otf"; sourceTree = "<group>"; };
+		05FA7412FB8E4959A2885195 /* NotoSansCJKkr-DemiLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-DemiLight.otf"; path = "../src/assets/fonts/NotoSansCJKkr-DemiLight.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* bares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = bares/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = bares/AppDelegate.mm; sourceTree = "<group>"; };
@@ -35,13 +35,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = bares/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = bares/main.m; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-bares.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bares.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62925ACA0CF141848D80111D /* NotoSansMonoCJKkr-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansMonoCJKkr-Bold.otf"; path = "../src/assets/fonts/NotoSansMonoCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		62925ACA0CF141848D80111D /* NotoSansMonoCJKkr-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansMonoCJKkr-Bold.otf"; path = "../src/assets/fonts/NotoSansMonoCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-bares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bares.debug.xcconfig"; path = "Target Support Files/Pods-bares/Pods-bares.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-bares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bares.release.xcconfig"; path = "Target Support Files/Pods-bares/Pods-bares.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = bares/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BF923287B57549F69EF5BA93 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Regular.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		C2CED96047E745E499B1F2B1 /* NotoSansCJKkr-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Black.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Black.otf"; sourceTree = "<group>"; };
+		BF923287B57549F69EF5BA93 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Regular.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		C2CED96047E745E499B1F2B1 /* NotoSansCJKkr-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Black.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Black.otf"; sourceTree = "<group>"; };
 		D0AB65BE2B85C0A700CBA31F /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		D0AB65C12B85C2B000CBA31F /* check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = check.pdf; sourceTree = "<group>"; };
 		D0AB65C22B85C2B000CBA31F /* inventory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory.png; sourceTree = "<group>"; };
@@ -56,11 +56,11 @@
 		D0AB65CB2B85C2B000CBA31F /* index.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = index.ts; sourceTree = "<group>"; };
 		D0AB65CC2B85C2B000CBA31F /* image.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = image.d.ts; sourceTree = "<group>"; };
 		D0AB65CD2B85C2B000CBA31F /* add_shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_shopping.png; sourceTree = "<group>"; };
-		D11A1529D6014B8DBDA10E2A /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Light.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
-		D8A777DDC2774FDE86DE75EA /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Medium.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		DBB860CF5CF54749852C6297 /* NotoSansMonoCJKkr-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansMonoCJKkr-Regular.otf"; path = "../src/assets/fonts/NotoSansMonoCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		E09132DEC9944294AEFBE6C2 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Bold.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		E5CCA1779FEE4E7581AE551E /* NotoSansCJKkr-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Thin.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Thin.otf"; sourceTree = "<group>"; };
+		D11A1529D6014B8DBDA10E2A /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Light.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		D8A777DDC2774FDE86DE75EA /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Medium.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		DBB860CF5CF54749852C6297 /* NotoSansMonoCJKkr-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansMonoCJKkr-Regular.otf"; path = "../src/assets/fonts/NotoSansMonoCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		E09132DEC9944294AEFBE6C2 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Bold.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		E5CCA1779FEE4E7581AE551E /* NotoSansCJKkr-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansCJKkr-Thin.otf"; path = "../src/assets/fonts/NotoSansCJKkr-Thin.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-bares/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +105,6 @@
 				DBB860CF5CF54749852C6297 /* NotoSansMonoCJKkr-Regular.otf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -402,7 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VL7N5729WK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -436,7 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VL7N5729WK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = bares/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
