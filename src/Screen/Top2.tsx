@@ -101,6 +101,7 @@ const Top2 = () => {
         yAxisLabelWidth={50}
         frontColor="rgba(0,100,255,0.1)"
         maxValue={1.0}
+        rulesType="solid"
         noOfSections={5}
         xAxisIndicesWidth={30}
         barBorderTopLeftRadius={10}
@@ -122,8 +123,9 @@ const Top2 = () => {
         dataPointsColor="red"
         maxValue={60}
         stepValue={20}
-        startFillColor="pink"
+        startFillColor="rgba(255,120,120,0.3)"
         height={150}
+        rulesType="solid"
       />
       <View style={styles.ninja} />
     </ScrollView>
